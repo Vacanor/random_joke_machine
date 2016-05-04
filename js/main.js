@@ -7,7 +7,7 @@
 var jokes = [];
 
 // We create a function that will iterate over the keys in the provided json (wich will contain the response text from the request) and then we push every "insert-key-name-here" entry 
-// from each object (the objects are all within the "value" key on the json) into it's correspondant array
+// from each object (the objects are all within the "value" key in the json) into it's correspondant array
 function storeinfo (resText){
   // For every object in "value"
     for(value = 0;value<resText.value.length;value++){
@@ -22,7 +22,7 @@ var xmlhttp = new XMLHttpRequest();
 // We define the api url
 var url = "api.json";
 
-// We create the request function (wich will get the response text and call our storeinfo() function)
+// We check the request function state (wich will get the response text and call our storeinfo() if the request is succesful)
 xmlhttp.onreadystatechange = function() {
 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
     var objects = JSON.parse(xmlhttp.responseText);
@@ -30,18 +30,22 @@ if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
     }
 };
 
-// We send the request
+// We open and send the request
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
+
+function getQuote(){
+ 
+       var rndQuote = (Math.floor(Math.random() * (jokes.length - 0 + 1) + 0));
+       $(".quote").html(jokes[rndQuote]);
+};
 // We modify our DOM with the aquired data
- $(document).ready(function() {
-  // We fill in our first page load joke
-  var initRndQuote = (Math.floor(Math.random() * (jokes.length - 0 + 1) + 0));
-  $(".quote").html(jokes[initRndQuote]);
-  // we change the joke every time we click
-    $("#getQuote").on("click", function(){
-      var rndQuote = (Math.floor(Math.random() * (jokes.length - 0 + 1) + 0));
-      $(".quote").html(jokes[rndQuote]);
-    });
-  });
+$(document).ready(function() {
+  // We simulate a click to the button
+    getQuote();
+    
+});
+$("#getQuote").on("click", function(){
+       getQuote();
+})
