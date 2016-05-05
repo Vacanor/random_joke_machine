@@ -25,7 +25,6 @@ body, html {
 	height: 100%;
 }
 .main {
-	position: absolute;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -34,9 +33,10 @@ body, html {
 }
 .links {
 	text-align: center;
+	position: absolute;
 	bottom: 0;
 	right: 0;
-	position: absolute;
+	left: 0;
 	padding: 10px;
 	margin: 10px;
 }
@@ -65,4 +65,18 @@ body, html {
 }
 .quote {
 	transition: all .5s ease-in-out;
+}
+.md-card {
+	transition: all .5s ease-in-out;
+	margin: 20px;
+}
+@media (max-height: 600px) {
+  footer {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .card-wide.mdl-card {
+  	width: 350px;
+	}
 }
