@@ -48,17 +48,25 @@ function storeinfo(json){
 $(document).ready(function(){
   
   // We get the init quote the quote container is not empty
-  getJoke();
+  $(".quote" ).animate({
+    opacity: 0,
+  }, 200 );
+     setTimeout(getJoke, 700);
+     setTimeout(function(){
+      $(".quote" ).animate({opacity: 1}, 500 );
+  }, 900);
+  
 
   // Every time we click we'll call the function to put the joke in the html.
   $("#getQuote").on("click", function(){
     $(".quote" ).animate({
     opacity: 0,
-  }, 500 );
-    getJoke();
-  $(".quote" ).animate({
-    opacity: 1,
-  }, 500 );
+  }, 400 );
+     setTimeout(getJoke, 800);
+     setTimeout(function(){
+      $(".quote" ).animate({opacity: 1}, 500 );
+    }, 1000);
+  
   });
   
 });
