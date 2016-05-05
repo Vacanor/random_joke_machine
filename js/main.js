@@ -37,29 +37,26 @@ function storeinfo(json){
   }
   var rndNum = (Math.floor(Math.random() * (jokes.length - 0 + 1) + 0)); // This variable generates the random number each time the function is called
   joke = jokes[rndNum]; // We select our random joke
-  console.log(joke);
-   // We put it in the html
-  
-  $(".quote").html(joke);
+  // console.log(joke);
+  // We put it in the html  
+  $(".joke").html(joke);
   
 }
 
 
 $(document).ready(function(){
-  
-  // We get the init quote the quote container is not empty
-  $(".quote" ).animate({
+  // We get the init joke so the initial joke container is not empty
+  $(".joke" ).animate({
     opacity: 0,
   }, 200 );
      setTimeout(getJoke, 700);
      setTimeout(function(){
-      $(".quote" ).animate({opacity: 1}, 500 );
+      $(".joke" ).animate({opacity: 1}, 500 );
   }, 900);
-  
 
   // Every time we click we'll call the function to put the joke in the html.
-  $("#getQuote").on("click", function(){
-    $(".quote" ).animate({
+  $("#getJoke").on("click", function(){
+    $(".joke" ).animate({
     opacity: 0,
   }, 400 );
      setTimeout(getJoke, 800);
@@ -68,5 +65,6 @@ $(document).ready(function(){
     }, 1000);
   
   });
-  
+  // On both the init joke and the onclick joke, the animate and timeout functions make posible a smooth exit and entrance for the joke. The first animate makes it disapear, then we change the html 
+  // and after that we make it appear again.
 });
