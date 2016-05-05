@@ -26,7 +26,6 @@ function getJoke(){
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 };
-
 // This function will recieve the objects from the request and will sotre the jokes from each object in an array, then, it will select a random number between 0 and the length of the jokes array
 // and finally it will put the random joke in the html. 
 function storeinfo(json){
@@ -39,10 +38,8 @@ function storeinfo(json){
   joke = jokes[rndNum]; // We select our random joke
   // console.log(joke);
   // We put it in the html  
-  $(".joke").html(joke);
-  
+  $(".joke").html(joke);  
 }
-
 
 $(document).ready(function(){
   // We get the init joke so the initial joke container is not empty
