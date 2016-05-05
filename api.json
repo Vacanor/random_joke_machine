@@ -1,6 +1,4 @@
-{
-  "type": "success",
-  "value": [
+    [
     {
       "id": 1,
       "joke": "Chuck Norris uses ribbed condoms inside out, so he gets the pleasure.",
@@ -3817,4 +3815,3 @@
       ]
     }
   ]
-}
