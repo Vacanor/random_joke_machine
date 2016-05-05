@@ -38,7 +38,10 @@ function storeinfo(json){
   var rndNum = (Math.floor(Math.random() * (jokes.length - 0 + 1) + 0)); // This variable generates the random number each time the function is called
   joke = jokes[rndNum]; // We select our random joke
   console.log(joke);
-  $(".quote").html(joke); // We put it in the html
+   // We put it in the html
+  
+  $(".quote").html(joke);
+  
 }
 
 
@@ -48,6 +51,14 @@ $(document).ready(function(){
   getJoke();
 
   // Every time we click we'll call the function to put the joke in the html.
-  $("#getQuote").on("click", getJoke);
+  $("#getQuote").on("click", function(){
+    $(".quote" ).animate({
+    opacity: 0,
+  }, 500 );
+    getJoke();
+  $(".quote" ).animate({
+    opacity: 1,
+  }, 500 );
+  });
   
 });
