@@ -58,7 +58,7 @@ $(document).ready(function(){
   }, 400 );
      setTimeout(getJoke, 800);
      setTimeout(function(){
-      $(".quote" ).animate({opacity: 1}, 500 );
+      $(".joke" ).animate({opacity: 1}, 500 );
     }, 1000);
   
   });
